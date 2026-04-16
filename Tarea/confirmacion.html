@@ -5,7 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmar Compra - Sakura</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Mantén los estilos que ya tienes -->
+    <style>
+        .confirmacion-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(255,77,109,0.15);
+            text-align: center;
+        }
+        .btn-confirmar {
+            background: linear-gradient(90deg, #ff4d6d, #ff8a9e);
+            color: white;
+            border: none;
+            padding: 16px 50px;
+            font-size: 1.3rem;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,12 +35,11 @@
             <div class="logo">Sakura</div>
             <div class="tagline">Elegancia y frescura en cada detalle</div>
         </div>
-        <button class="login-btn" onclick="window.location.href='index.html'">Volver</button>
+        <button class="login-btn" onclick="window.location.href='index.html'">Volver al Catálogo</button>
     </header>
 
     <div class="confirmacion-container">
         <h1>Confirmación de Compra 🌸</h1>
-
         <div id="resumen-producto"></div>
 
         <form id="form-confirmacion">
@@ -30,13 +50,13 @@
                 <input type="email" id="email" placeholder="Correo electrónico" required>
             </div>
             <div class="input-group">
-                <input type="tel" id="telefono" placeholder="Teléfono/WhatsApp" required>
+                <input type="tel" id="telefono" placeholder="Teléfono / WhatsApp" required>
             </div>
             <div class="input-group">
-                <input type="number" id="cantidad" placeholder="Cantidad" min="1" value="1">
+                <input type="number" id="cantidad" placeholder="Cantidad" min="1" value="1" required>
             </div>
 
-            <button type="submit" class="btn-confirmar">Confirmar Compra</button>
+            <button type="submit" class="btn-confirmar">Confirmar y Pagar</button>
         </form>
     </div>
 
@@ -50,30 +70,28 @@
             `;
         }
 
-        // Bucle WHILE + DO...WHILE en validación
         document.getElementById('form-confirmacion').addEventListener('submit', function(e) {
             e.preventDefault();
 
             let nombre = document.getElementById('nombre').value.trim();
             let cantidad = parseInt(document.getElementById('cantidad').value);
-
-            // While: Validar que el nombre no esté vacío
+           //bucle while y do while
             while (nombre === "") {
-                nombre = prompt("Por favor ingresa tu nombre completo:");
+                nombre = prompt("⚠️ Por favor ingresa tu nombre completo:");
                 if (nombre) document.getElementById('nombre').value = nombre;
             }
 
-            // Do...While: Asegurar que la cantidad sea válida
             do {
                 if (cantidad < 1 || isNaN(cantidad)) {
-                    cantidad = parseInt(prompt("La cantidad debe ser al menos 1. Ingresa la cantidad:"));
+                    cantidad = parseInt(prompt("⚠️ La cantidad debe ser al menos 1.\nIngresa la cantidad:"));
                 }
             } while (cantidad < 1 || isNaN(cantidad));
 
-            alert(`✅ Compra confirmada!\n\nCliente: ${nombre}\nProducto: ${datosCompra.nombre}\nCantidad: ${cantidad}\nTotal: S/ ${(datosCompra.precio * cantidad).toFixed(2)}`);
+            // Confirmación final
+            alert(`🎉 ¡Compra confirmada exitosamente!\n\nCliente: ${nombre}\nProducto: ${datosCompra.nombre}\nCantidad: ${cantidad}\nTotal: S/ ${(datosCompra.precio * cantidad).toFixed(2)}\n\nTe contactaremos por WhatsApp.`);
 
             localStorage.removeItem('productoCompra');
-            setTimeout(() => window.location.href = "index.html", 1500);
+            setTimeout(() => window.location.href = "index.html", 1800);
         });
     </script>
 </body>
