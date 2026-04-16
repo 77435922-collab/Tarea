@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fffaf5;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #ff8a9e, #ffc2a1);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.logo {
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    margin-top: -5px;
+}
+
+.login-btn {
+    background-color: white;
+    color: #ff8a9e;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #ff4d6d;
+    color: white;
+}
+
+/* Navigation */
+nav {
+    background-color: #fff0f5;
+    padding: 15px 0;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 25px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.hero h1 {
+    color: #ff4d6d;
+    font-size: 2.8rem;
+}
+
+.hero p {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+/* Products */
+.products {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 10px 20px rgba(255, 138, 158, 0.15);
+    overflow: hidden;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    color: #ff4d6d;
+    margin: 15px 0 5px;
+}
+
+.price {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.buy-btn {
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.buy-btn:hover {
+    background: #ff8a9e;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, #ff8a9e, #ff6b8a);
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 50px;
+}

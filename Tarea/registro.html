@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Sakura</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-container { min-height: 100vh; background: linear-gradient(135deg, #ff8a9e, #ffc2a1); display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .login-box { background: white; padding: 50px 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(255,138,158,0.3); width: 100%; max-width: 420px; text-align: center; }
+        .login-logo h1 { color: #ff4d6d; font-size: 3rem; }
+        .input-group { margin-bottom: 20px; text-align: left; }
+        .input-group input { width: 100%; padding: 14px; border: 2px solid #ffe0e9; border-radius: 10px; }
+        .login-button { width: 100%; background: linear-gradient(90deg, #ff4d6d, #ff8a9e); color: white; border: none; padding: 15px; border-radius: 30px; font-size: 1.1rem; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-logo">
+                <h1>Sakura</h1>
+                <p>Elegancia y frescura en cada detalle</p>
+            </div>
+            <h2>Crear Cuenta</h2>
+            <form id="registro-form">
+                <div class="input-group">
+                    <input type="text" id="nombre" placeholder="Nombre completo" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="confirm-password" placeholder="Confirmar contraseña" required>
+                </div>
+                <button type="submit" class="login-button">Registrarme</button>
+            </form>
+            <div style="margin-top: 20px;">
+                ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
+            </div>
+            <div style="margin-top: 30px;">
+                <a href="index.html">← Volver al inicio</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="registro.js"></script>
+</body>
+</html>

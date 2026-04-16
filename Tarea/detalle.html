@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle - Sakura</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .detalle-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 30px;
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .detalle-imagen img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(255,77,109,0.25);
+        }
+        .detalle-info h1 { color: #ff4d6d; font-size: 2.8rem; }
+        .precio-grande { font-size: 3rem; font-weight: bold; color: #ff4d6d; margin: 20px 0; }
+        .descripcion { font-size: 1.1rem; line-height: 1.8; color: #444; }
+        .btn-comprar {
+            background: linear-gradient(90deg, #ff4d6d, #ff8a9e);
+            color: white;
+            border: none;
+            padding: 16px 50px;
+            font-size: 1.3rem;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .btn-volver {
+            background: #ddd;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <div class="logo">Sakura</div>
+            <div class="tagline">Elegancia y frescura en cada detalle</div>
+        </div>
+        <button class="login-btn" onclick="window.location.href='index.html'">Volver al Catálogo</button>
+    </header>
+
+    <div class="detalle-container" id="detalle-container"></div>
+
+            <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const idProducto = parseInt(urlParams.get('id'));
+
+        const productos = [
+            { id: 1, nombre: "Rosas Premium", precio: 60, img: "imagenes/rosas.jpg", descripcion: "Ramo de rosas rojas premium." },
+            { id: 2, nombre: "Orquídeas", precio: 70, img: "imagenes/orquideas.jpg", descripcion: "Orquídeas elegantes." },
+            { id: 3, nombre: "Lirios", precio: 55, img: "imagenes/lirios.jpg", descripcion: "Lirios sofisticados." },
+            { id: 4, nombre: "Tulipanes", precio: 45, img: "imagenes/tulipanes.jpg", descripcion: "Tulipanes frescos." },
+            { id: 5, nombre: "Girasoles", precio: 50, img: "imagenes/girasoles.jpg", descripcion: "Girasoles alegres." }
+        ];
+
+        let producto = null;
+
+        // Bucle FOR para buscar el producto
+        for (let i = 0; i < productos.length; i++) {
+            if (productos[i].id === idProducto) {
+                producto = productos[i];
+                break;   // Salimos del bucle cuando encontramos el producto
+            }
+        }
+
+        const container = document.getElementById('detalle-container');
+
+        if (producto) {
+            container.innerHTML = `
+                <div class="detalle-imagen">
+                    <img src="${producto.img}" alt="${producto.nombre}">
+                </div>
+                <div class="detalle-info">
+                    <h1>${producto.nombre}</h1>
+                    <div class="precio-grande">S/ ${producto.precio}.00</div>
+                    <p class="descripcion">${producto.descripcion}</p>
+                    
+                    <button class="btn-comprar" onclick="comprarAhora('${producto.nombre}', ${producto.precio})">
+                        Comprar Ahora
+                    </button>
+                    
+                    <a href="index.html" class="btn-volver">← Volver al Catálogo</a>
+                </div>
+            `;
+        } else {
+            container.innerHTML = `<h2>Producto no encontrado</h2>`;
+        }
+
+        function comprarAhora(nombre, precio) {
+            localStorage.setItem('productoCompra', JSON.stringify({ nombre, precio, cantidad: 1 }));
+            window.location.href = 'confirmacion.html';
+        }
+    </script>
+</body>
+</html>
