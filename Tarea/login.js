@@ -1,4 +1,4 @@
-// login.js - Usando bucle WHILE para intentos
+
 
 let intentos = 3;
 
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-
+        //bucle while
         while (intentos > 0) {
             if (email === "admin@sakura.com" && password === "123456") {
                 alert("¡Bienvenido de nuevo a Sakura! 🌸");

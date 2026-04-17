@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const contenedor = document.getElementById("productos-container");
 
-    // Bucle FOR clásico - Genera las tarjetas de productos
+    // Bucle for
     for (let i = 0; i < flores.length; i++) {
         const flor = flores[i];
 

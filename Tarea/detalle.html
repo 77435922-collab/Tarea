@@ -55,7 +55,7 @@
 
     <div class="detalle-container" id="detalle-container"></div>
 
-            <script>
+    <script>
         const urlParams = new URLSearchParams(window.location.search);
         const idProducto = parseInt(urlParams.get('id'));
 
@@ -69,7 +69,7 @@
 
         let producto = null;
 
-        // Bucle FOR para buscar el producto
+        // Bucle FOR
         for (let i = 0; i < productos.length; i++) {
             if (productos[i].id === idProducto) {
                 producto = productos[i];

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let password = document.getElementById('password').value;
         let confirmPassword = document.getElementById('confirm-password').value;
 
-        // do...while para validar que las contraseñas coincidan
+        // bucle do while
         do {
             if (password !== confirmPassword) {
                 alert("Las contraseñas no coinciden. Inténtalo de nuevo.");
